@@ -1,0 +1,72 @@
+Use Cases to Implement: 
+----------------------
+• addPlayerToDepthChart (position, player, position_depth)
+	o Adds a player to the depth chart at a given position
+	o Adding a player without a position_depth would add them to the end of the depth chart at that position
+	o The added player would get priority. Anyone below that player in the depth chart would get moved down a
+	position_depth 
+• removePlayerFromDepthChart(position, player)
+	o Removes a player from the depth chart for a given position and returns that player
+	o An empty list should be returned if that player is not listed in the depth chart at that position
+• getBackups (position, player)
+	o For a given player and position, we want to see all players that are “Backups”, those with a lower position_depth
+	o An empty list should be returned if the given player has no Backups
+	o An empty list should be returned if the given player is not listed in the depth chart at that position
+• getFullDepthChart()
+	o Print out the full depth chart with every position on the team and every player within the Depth Chart  
+ 
+
+Some Sample Inputs / Outputs 
+----------------------------
+
+var TomBrady = { "number": 12, "name": "Tom Brady" }
+var BlaineGabbert = { "number": 11, "name": "Blaine Gabbert" }
+var KyleTrask = { "number": 2, "name": "Kyle Trask" }
+
+var MikeEvans = { "number": 13, "name": "Mike Evans" }
+var JaelonDarden = { "number": 1, "name": "Jaelon Darden" }
+var ScottMiller = { "number": 10, "name": "Scott Miller" }
+
+
+addPlayerToDepthChart(“QB”, TomBrady, 0);
+addPlayerToDepthChart(“QB”, BlaineGabbert, 1);
+addPlayerToDepthChart(“QB”, KyleTrask, 2);
+
+addPlayerToDepthChart(“LWR”, MikeEvans, 0);
+addPlayerToDepthChart(“LWR”, JaelonDarden, 1);
+addPlayerToDepthChart(“LWR”, ScottMiller, 2);
+
+getBackups(“QB”, TomBrady)
+/* Output */
+#11 – Blaine Gabbert
+#2 – Kyle Trask
+ 
+getBackups(“QB”, JaelonDarden) 
+/* Output */
+#10 – Scott Miller
+
+getBackups(“QB”, MikeEvans)
+/* Output */
+<NO LIST>
+
+getBackups(“QB”, BlaineGabbert)
+/* Output */
+#2 - Kyle Trask
+
+getBackups(“QB”, Kyle Trask)
+/* Output */
+<NO LIST>
+
+getFullDepthChart()
+/* Output */
+QB – (#12, Tom Brady), (#11, Blaine Gabbert), (#2, Kyle Trask)
+LWR – (#13, Mike Evans), (#1, Jaelon Darden), (#10, Scott Miller)
+
+removePlayerFromDepthChart(“WR”, MikeEvans)
+/* Output */
+#13 – MikeEvans
+
+getFullDepthChart()
+/* Output */
+QB – (#12, Tom Brady), (#11, Blaine Gabbert), (#2, Kyle Trask)
+LWR - (#1, Jaelon Darden), (#10, Scott Miller)

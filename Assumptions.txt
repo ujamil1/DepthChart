@@ -1,0 +1,7 @@
+Following assumptions were made.
+
+1. As per example in the specs document, it was assumed players will be added in order. Hence no smarts added for sorting the players.
+2. getBackups("QB", JaelonDarden) with Output = #10 – Scott Miller in specs has a position typo. To have that output the position should be "LWR"
+3. removePlayerFromDepthChart(“WR”, MikeEvans) with Output = #13 – MikeEvans has a position typo. To have that outpout the position should be "LWR"
+4. Assuming that different sports would have different rules for building Depth charts. IDepthChartService can be implemented by a class for each sports and instantiated by IDepthChartServiceFactory.
+5. Not clean on the role of different teams affecting Depth charts. Let us discuss this in our review session.
